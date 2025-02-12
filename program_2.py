@@ -1,14 +1,24 @@
-# Program #2: Movie Tix
-# Write a program that has the user input various movie names and how many 
-# tickets are desired for each movie.  
-# At the end of the program it prints out the total number of tickets desired by the user.  
-# Use either a "for loop" or "while loop" to accomplish this.
+#Ben Krehbiel#
+#2/12/2025#
 
-def main():
-    ######################
-    # WRITE YOUR CODE HERE
-    ######################
+user_inputs = []
 
+def get_tickets():
+    global user_inputs
 
-if __name__ == '__main__':
-    main()
+    while True:
+        value = input("please input the name of the movie AND the tickets required (or type 'done')")
+        user_inputs.append(value)
+
+        if value.lower() == "done":
+            break
+
+        user_inputs.extend(value.split())
+
+def sum_ticket_numbers():
+    total_tickets = sum(int(x) for x in user_inputs if x.isdigit())
+    return total_tickets
+
+get_tickets()
+print("Total movies and tickets:", user_inputs)
+print("Sum of ticket numbers:", sum_ticket_numbers())

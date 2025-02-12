@@ -1,0 +1,42 @@
+#Ben Krehbiel#
+#2/12/2025#
+
+#set all variables to zero#
+#ask for the users total budget#
+#make the following text repeat unless the user says done#
+#ask for each of the uers expenses#
+#make sure the program wont get briked by invalid inputs#
+#take the users total budget - their expenses#
+#tell the user if they are over or under budget#
+
+
+
+
+
+def get_total():
+    total = 0.0
+    budget = float(input("Input your total budget for the month"))
+
+    while True:
+        user_input = input("Enter Your expenses one at a time (0.00) (or type done to finish):")
+
+        if user_input.lower() == "done":
+            break
+
+        try:
+            expenses = float(user_input)
+            total += expenses
+
+        except ValueError:
+            print("Invalid input, please enter a number or 'done'.")
+
+    return budget - total
+
+
+
+
+total_price = get_total()
+if total_price > 0:
+    print(f"Your total is ${total_price:.2f} You are on budget!")
+else:
+    print(f"Your total is ${total_price:.2f} You spent to much :'(")
