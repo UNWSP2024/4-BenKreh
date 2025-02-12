@@ -1,3 +1,6 @@
+#Ben Krehbiel#
+#2/12/2025#
+
 user_inputs = []
 
 def get_tickets():
